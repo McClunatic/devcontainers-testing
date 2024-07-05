@@ -32,16 +32,15 @@ Simple repository for testing with the
 ...
 {"outcome":"success","containerId":"d3982d159758e87ea49d20947e14e7ee5a7e3eb8dfd92f712e285785f7a516f3","remoteUser":"vscode","remoteWorkspaceFolder":"/workspace"}
 ```
-5. Authorize a local ssh key for the `vscode` user to enable authentication.
-   The below example presumes an `ssh-agent` is running and that keys can
-   be queried using `ssh-add -L`. An alternative is to `cat` a public key
-   directly from file.
-   Use the `containerId` output from `devcontainer up` as argument to
-   `docker exec`: 
+5. Authorize a local ssh key for the `vscode` user to enable authentication:
 
 ```sh
-❯ ssh-add -L | docker exec -i --user vscode d398 bash -c "umask 77 && mkdir -p ~/.ssh && cat - >> ~/.ssh/authorized_keys"
+❯ ssh-add -L | devcontainer exec --workspace-folder . bash -c "umask 77 && mkdir -p ~/.ssh && cat - >> ~/.ssh/authorized_keys"
 ```
+> The above example presumes an `ssh-agent` is running and that keys can
+  be queried using `ssh-add -L`. An alternative is to `cat` a public key
+  directly from file.
+
 6. Connect to the container:
 
 ```sh
