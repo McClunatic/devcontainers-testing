@@ -16,7 +16,7 @@ Simple repository for testing with the
 ❯ devcontainer templates apply \
     --template-id ghcr.io/devcontainers/templates/python:3.1.0 \
     --template-args '{"imageVariant": "3.12-bookworm"}' \
-    --features '[{"id": "ghcr.io/devcontainers/features/sshd:1", "options": {"username": "vscode", "sshd_port": 10648, "sshd_start": true}}]'
+    --features '[{"id": "ghcr.io/devcontainers/features/sshd:1", "options": {"username": "vscode", "sshd_port": 10648, "start_sshd": true}}]'
 ```
 3. Modify the 
    [.devcontainer/devcontainer.json](.devcontainer/devcontainer.json) to add:

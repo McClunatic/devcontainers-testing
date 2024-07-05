@@ -1,0 +1,24 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/python
+{
+	"name": "Python 3",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	"image": "mcr.microsoft.com/devcontainers/python:1-3.12-bookworm",
+	"features": {
+		"ghcr.io/devcontainers/features/sshd:1": {
+			"username": "vscode",
+			"sshd_port": 10648,
+			"start_sshd": true
+		}
+	},
+
+	// The path to the workspace folder in the container.
+	"workspaceFolder": "/workspace",
+
+	// The --mount parameter for docker run. Default is to bind the project to /workspaces/$project
+	"workspaceMount": "type=volume,source=test-python-sshd,target=/workspace",
+
+	// Application ports that are exposed by the container.
+	// Using instead of forwardPorts, see: https://github.com/devcontainers/cli/issues/22
+	"appPort": 10648
+}
