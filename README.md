@@ -26,6 +26,9 @@ Simple repository for testing with the
      * `workspaceFolder`: Path to the workspace folder in the container.
      * `workspaceMount`: Mount parameter for `docker run`. Target should match
        `workspaceFolder`.
+     * `postCreateCommand`: Command to run after the container is created.
+       In this example it is set to `sudo chown vscode:vscode /workspace` to
+       ensure the mounted volume is owned by the `remoteUser`, `vscode`.
      * `appPort`: Specifies the port(s) to expose from the container. Should
        be set to `10648` if using the example options above for `sshd`.
 4. Start the devcontainer:

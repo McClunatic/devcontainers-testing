@@ -19,6 +19,9 @@
 	// The --mount parameter for docker run. Default is to bind the project to /workspaces/$project
 	"workspaceMount": "type=volume,source=test-python-sshd,target=/workspace",
 
+	// Command to run after starting the container.
+	"postCreateCommand": "sudo chown vscode:vscode /workspace",
+
 	// Application ports that are exposed by the container.
 	// Using instead of forwardPorts, see: https://github.com/devcontainers/cli/issues/22
 	"appPort": 10648
