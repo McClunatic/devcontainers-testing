@@ -16,7 +16,10 @@ Simple repository for testing with the
 ❯ devcontainer templates apply \
     --template-id ghcr.io/devcontainers/templates/python:3.1.0 \
     --template-args '{"imageVariant": "3.12-bookworm"}' \
-    --features '[{"id": "ghcr.io/devcontainers/features/sshd:1", "options": {"username": "vscode", "sshd_port": 10648, "start_sshd": true}}]'
+    --features '[
+      {"id": "ghcr.io/devcontainers/features/sshd:1", "options": {"username": "vscode", "sshd_port": 10648, "start_sshd": true}},
+      {"id": "ghcr.io/devcontainers-contrib/features/starship:1"}
+    ]'
 ```
 3. Modify the 
    [.devcontainer/devcontainer.json](.devcontainer/devcontainer.json) to add:
@@ -32,6 +35,12 @@ Simple repository for testing with the
 ...
 {"outcome":"success","containerId":"d3982d159758e87ea49d20947e14e7ee5a7e3eb8dfd92f712e285785f7a516f3","remoteUser":"vscode","remoteWorkspaceFolder":"/workspace"}
 ```
+> If you have a dotfiles repository, you can use them within the devcontainer
+> by appending `--dotfiles-repository [URL]`. For example,
+> `--dotfiles-repository https://github.com/McClunatic/dotfiles.git`.
+> To see more information about using dotfiles with devcontainers, use
+> `devcontainer up --help`.
+
 5. Authorize a local ssh key for the `vscode` user to enable authentication:
 
 ```sh
@@ -54,7 +63,8 @@ individual files in /usr/share/doc/*/copyright.
 
 Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
 permitted by applicable law.
-vscode ➜ ~ $
+vscode in 🌐 fd80231983d4 in ~
+⬢ [Docker] ❯
 ```
 As noted in the
 [sshd feature README](https://github.com/devcontainers/features/blob/main/src/sshd/NOTES.md),

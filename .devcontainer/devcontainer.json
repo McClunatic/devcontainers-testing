@@ -9,7 +9,8 @@
 			"username": "vscode",
 			"sshd_port": 10648,
 			"start_sshd": true
-		}
+		},
+    "ghcr.io/devcontainers-contrib/features/starship:1": {}
 	},
 
 	// The path to the workspace folder in the container.
