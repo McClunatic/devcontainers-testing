@@ -11,6 +11,7 @@
 			"start_sshd": true
 		},
     "ghcr.io/devcontainers-contrib/features/starship:1": {}
+    "ghcr.io/devcontainers-contrib/features/vscode-server:1": {}
 	},
 
 	// The path to the workspace folder in the container.
@@ -21,8 +22,9 @@
 
 	// Command to run after starting the container.
 	"postCreateCommand": "sudo chown vscode:vscode /workspace",
+	"postStartCommand": "nohup bash -c '/usr/local/bin/code-server --host 0.0.0.0 --accept-server-license-terms --without-connection-token &'",
 
 	// Application ports that are exposed by the container.
 	// Using instead of forwardPorts, see: https://github.com/devcontainers/cli/issues/22
-	"appPort": 10648
+	"appPort": [8000, 10648]
 }

@@ -18,7 +18,8 @@ Simple repository for testing with the
     --template-args '{"imageVariant": "3.12-bookworm"}' \
     --features '[
       {"id": "ghcr.io/devcontainers/features/sshd:1", "options": {"username": "vscode", "sshd_port": 10648, "start_sshd": true}},
-      {"id": "ghcr.io/devcontainers-contrib/features/starship:1"}
+      {"id": "ghcr.io/devcontainers-contrib/features/starship:1"},
+      {"id": "ghcr.io/devcontainers-contrib/features/vscode-server:1"}
     ]'
 ```
 3. Modify the 
@@ -29,8 +30,11 @@ Simple repository for testing with the
      * `postCreateCommand`: Command to run after the container is created.
        In this example it is set to `sudo chown vscode:vscode /workspace` to
        ensure the mounted volume is owned by the `remoteUser`, `vscode`.
+     * `postStartCommand`: Command to run after the container is started.
+       In this example is it used to start `code-server`.
      * `appPort`: Specifies the port(s) to expose from the container. Should
-       be set to `10648` if using the example options above for `sshd`.
+       be set to `[8000, 10648]` if using the example options above for
+       `vsode-server` and `sshd`, respectively.
 4. Start the devcontainer:
 
 ```sh
@@ -73,3 +77,6 @@ As noted in the
 [sshd feature README](https://github.com/devcontainers/features/blob/main/src/sshd/NOTES.md),
 the `-o`  arguments are optional, but will prevent you from getting warnings or
 errors about known hosts when you do this from multiple containers/codespaces.
+
+7. Connect to `code-server` by visiting [http://localhost:8000](http://localhost:8000)
+   in your browser.
