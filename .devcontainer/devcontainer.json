@@ -10,7 +10,7 @@
 			"sshd_port": 10648,
 			"start_sshd": true
 		},
-    "ghcr.io/devcontainers-contrib/features/starship:1": {}
+    "ghcr.io/devcontainers-contrib/features/starship:1": {},
     "ghcr.io/devcontainers-contrib/features/vscode-server:1": {}
 	},
 
