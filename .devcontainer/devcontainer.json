@@ -22,6 +22,7 @@
 
 	// Command to run after starting the container.
 	"postCreateCommand": "sudo chown vscode:vscode /workspace",
+	// See: https://code.visualstudio.com/remote/advancedcontainers/start-processes
 	"postStartCommand": "nohup bash -c '/usr/local/bin/code-server --host 0.0.0.0 --accept-server-license-terms --without-connection-token &'",
 
 	// Application ports that are exposed by the container.
